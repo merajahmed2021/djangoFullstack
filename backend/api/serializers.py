@@ -4,19 +4,10 @@ from .models import Post
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
-class PostSerializer(serializers.ModelSerializer):
-    # image = serializers.ImageField(max_length=None, use_url=True)
-    # image_url = serializers.SerializerMethodField('get_image_url')
-    
+class PostSerializer(serializers.ModelSerializer):    
     class Meta:
         model = Post
         fields =  ('id', 'title', 'content','image')
-
-    # def get_image_url(self, obj):
-        # return obj.image.url  
-        # request = self.context.get("request")
-        # return request.build_absolute_uri(obj.image.url)  
-
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
